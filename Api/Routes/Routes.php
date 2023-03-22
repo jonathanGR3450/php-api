@@ -116,6 +116,10 @@ class Routes
                 $routesPaymentPdf = PaymentPdf::create();
                 $routesPaymentPdf->getRoutes();
                 break;
+            case 'employees':
+                $routesEmployees = Employees::create();
+                $routesEmployees->getRoutes();
+                break;
             default:
                 header("HTTP/1.1 404 Not Found");
                 header('Content-Type: application/json');
