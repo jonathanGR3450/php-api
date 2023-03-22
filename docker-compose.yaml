@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  web:
+    build: ./Api
+    container_name: web
+    env_file:
+      - ./.env
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    working_dir: /var/www/html
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./Api:/var/www/html
+      - ./Api/.htaccess:/var/www/html/.htaccess
+      - ./Api/php/php.ini:/usr/local/etc/php/php.ini
+      - ./.env:/var/www/html/.env
+    networks:
+      - app-network
+
+  front:
+    build: ./Frontend
+    container_name: front
+    env_file:
+      - ./.env
+    ports:
+      - "8080:80"
+    depends_on:
+      - web
+    working_dir: /var/www/html
+    environment:
+      API_HOST: ${API_HOST}
+    volumes:
+      - ./Frontend:/var/www/html
+      - ./Frontend/php/php.ini:/usr/local/etc/php/php.ini
+    networks:
+      - app-network
+
+  #MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./data/dbdata:/var/lib/mysql
+      - ./Api/mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local

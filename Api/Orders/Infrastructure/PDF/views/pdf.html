@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <img src="../statics/img/logoEmpresa.jpg" alt="" srcset="">
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td><h4>Number of Order: {orderNumber}</h4></td>
+                <td><h4>Date Buy: {orderDate}</h4></td>
+            </tr>
+            <tr>
+                <td><h4>Customer Name: {customerName}</h4></td>
+                <td><h4>Customer Number: {customerNumber}</h4></td>
+            </tr>
+            <tr>
+                <td><h4>Shipped Date: {shippedDate}</h4></td>
+                <td><h4>Required Date: {requiredDate}</h4></td>
+            </tr>
+            <tr>
+                <td><h4>Status: {status}</h4></td>
+                <td><h4>has paid: {paid}</h4></td>
+            </tr>
+            <tr>
+                <td><h4>Your Owe: {owe}</h4></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <h1>Order Detail</h1>
+
+    <table style="border-collapse: collapse; width: 100%; font-size: 12px;">
+        <thead>
+            <tr style="background-color: #CCCCCC;">
+                <th style="border: 1px solid #000000; padding: 5px;">Product Name</th>
+                <th style="border: 1px solid #000000; padding: 5px;">Product Line</th>
+                <th style="border: 1px solid #000000; padding: 5px;">Price Each</th>
+                <th style="border: 1px solid #000000; padding: 5px;">Quantity Ordered</th>
+                <th style="border: 1px solid #000000; padding: 5px;">Price Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {tablaDetail}
+            <tr>
+                <td colspan="4" style="border: 1px solid #000000; padding: 5px;">Total</td>
+                <td style="border: 1px solid #000000; padding: 5px;">{totalFinal}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
