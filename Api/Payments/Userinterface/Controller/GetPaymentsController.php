@@ -18,8 +18,8 @@ class GetPaymentsController extends BaseController
         try {
             $data = $this->indexPaymentsUseCase->__invoke(
                 $this->queryGet('offset', null),
-                $this->queryGet('orderNumber', null),
-                $this->queryGet('productCode', null)
+                (int) $this->queryGet('customerNumber', null),
+                $this->queryGet('checkNumber', null)
             );
 
             $data = [

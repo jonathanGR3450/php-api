@@ -31,11 +31,11 @@ class UpdateOrderDetailController extends BaseController
             $result = $this->updateOrderDetailUseCase->__invoke(
                 $this->id,
                 $this->id2,
-                $this->queryPost('orderNumber', null),
+                (int)$this->queryPost('orderNumber', null),
                 $this->queryPost('productCode', null),
-                $this->queryPost('quantityOrdered', null),
-                $this->queryPost('priceEach', null),
-                $this->queryPost('orderLineNumber', null)
+                (int) $this->queryPost('quantityOrdered', null),
+                (float) $this->queryPost('priceEach', null),
+                (int) $this->queryPost('orderLineNumber', null)
             );
 
             $data = [

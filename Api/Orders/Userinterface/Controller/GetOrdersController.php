@@ -15,6 +15,8 @@ class GetOrdersController extends BaseController
 
     public function __invoke()
     {
+        // print_r($this->queryGet('customerNumber', null));
+        // die;
         try {
             $data = $this->indexOrderUseCase->__invoke(
                 $this->queryGet('offset', null),

@@ -27,9 +27,9 @@ final class UpdateOrderDetailUseCase
     ): array {
         $orderDetail = $this->orderDetailRepository->findByOrderProduct(OrderNumber::fromInteger((int) $id), ProductCode::fromString($id2));
 
-        // if ($productCode) {
-        //     $order->updateProductCode($productCode);
-        // }
+        if ($productCode) {
+            $orderDetail->updateProductCode($productCode);
+        }
         // if ($orderNumber) {
         //     $order->updateOrderNumber($orderNumber);
         // }

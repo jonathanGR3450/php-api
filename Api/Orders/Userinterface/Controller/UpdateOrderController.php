@@ -31,7 +31,7 @@ class UpdateOrderController extends BaseController
                 $this->queryPost('orderDate', null),
                 $this->queryPost('requiredDate', null),
                 $this->queryPost('status', null),
-                $this->queryPost('customerNumber', null),
+                (int) $this->queryPost('customerNumber', null),
                 $this->queryPost('shippedDate', null),
                 $this->queryPost('comments', null)
             );

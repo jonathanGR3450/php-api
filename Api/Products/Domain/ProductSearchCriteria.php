@@ -30,7 +30,7 @@ final class ProductSearchCriteria extends Criteria
         return $criteria;
     }
 
-    public function productName(): ?int
+    public function productName(): ?string
     {
         return $this->productName;
     }

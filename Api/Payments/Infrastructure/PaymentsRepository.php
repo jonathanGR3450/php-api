@@ -28,7 +28,7 @@ class PaymentsRepository implements PaymentsRepositoryInterface
         $query = $this->paymentsModel->select();
 
         if (!empty($criteria->customerNumber())) {
-            $query->where('customerNumber', 'LIKE', "'%{$criteria->customerNumber()}%'");
+            $query->where('customerNumber', '=', "'{$criteria->customerNumber()}'");
         }
 
         if (!empty($criteria->checkNumber())) {

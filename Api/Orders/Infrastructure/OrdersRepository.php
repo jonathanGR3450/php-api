@@ -34,7 +34,7 @@ class OrdersRepository implements OrdersRepositoryInterface
         }
 
         if (!empty($criteria->customerNumber())) {
-            $query->where('customerNumber', 'LIKE', "'%{$criteria->customerNumber()}%'");
+            $query->where('customerNumber', '=', "'{$criteria->customerNumber()}'");
         }
 
         if (!empty($criteria->status())) {

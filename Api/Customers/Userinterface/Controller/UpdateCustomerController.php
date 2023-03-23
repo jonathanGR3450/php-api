@@ -35,7 +35,7 @@ class UpdateCustomerController extends BaseController
                 $this->queryPost('addressLine1', null),
                 $this->queryPost('city', null),
                 $this->queryPost('country', null),
-                $this->queryPost('creditLimit', null),
+                (int) $this->queryPost('creditLimit', null),
                 $this->queryPost('addressLine2', null),
                 $this->queryPost('state', null),
                 $this->queryPost('postalCode', null),
