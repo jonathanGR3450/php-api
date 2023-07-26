@@ -39,7 +39,7 @@ class UpdateCustomerController extends BaseController
                 $this->queryPost('addressLine2', null),
                 $this->queryPost('state', null),
                 $this->queryPost('postalCode', null),
-                $this->queryPost('salesRepEmployeeNumber', null)
+                (int) $this->queryPost('salesRepEmployeeNumber', null)
             );
 
             $data = [
